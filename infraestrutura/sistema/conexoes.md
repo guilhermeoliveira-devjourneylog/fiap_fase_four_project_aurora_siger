@@ -115,3 +115,35 @@ Facilita:
 - embarque para missões externas;
 - logística interna.
 
+Recursos ↔ Transporte (175)
+
+Responsável pelo escoamento de:
+
+- minérios;
+- equipamentos;
+- materiais processados.
+
+É uma ligação essencial para a cadeia logística da colônia.
+
+**Os vértices mais importantes são:**
+
+- Centro de Controle
+- Energia
+
+Eles possuem grau 8 (conectados a todos os demais módulos).
+
+Se removêssemos várias conexões secundárias, a rede continuaria funcionando graças a esses dois hubs.
+
+**Redundância Operacional**
+
+Por exemplo, para chegar de Agricultura a Médico existem vários caminhos:
+
+Agricultura → Energia → Médico
+
+140 + 170 = 310
+
+Agricultura → Centro → Médico
+
+250 + 200 = 450
+
+Essa multiplicidade de rotas é exatamente o que torna o grafo adequado para aplicar algoritmos como BFS, DFS e principalmente Dijkstra, que encontrará automaticamente o menor caminho entre módulos da colônia.
