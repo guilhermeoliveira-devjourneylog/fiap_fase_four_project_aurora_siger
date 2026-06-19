@@ -92,3 +92,13 @@ Responsável pela saúde da população da colônia. Inclui monitoramento biomé
 Gerencia a movimentação de pessoas, cargas, veículos e drones logísticos entre os módulos e pela superfície lunar, sustentando a operação integrada da colônia.
 
 [Sistema de Transporte](/infraestrutura/sistema/transporte.md)
+
+[Governança](/infraestrutura/governanca/governanca.md)
+
+[Sustentabilidade](/infraestrutura/sustentabilidade/sustentabilidade.md)
+
+[Maturidade Operacional](/infraestrutura/maturidade_operacional.md)
+
+[Sistemas Críticos](/infraestrutura/sistemas_criticos.md)
+
+
