@@ -10,43 +10,51 @@ from presenters.rich_graph_printer import (
     RichGraphPrinter
 )
 
+from presenters.energy_printer import (
+    EnergyPrinter
+)
+
 from algorithms.dijkstra import (
     DijkstraAlgorithm
+)
+
+from algorithms.energy_growth import (
+    EnergyGrowth
 )
 
 CENTRO = 0
 
 
-def reconstruct_path(previous, destination):
+def reconstruct_path(
+    previous,
+    destination
+):
     """
-    Reconstrói o caminho mínimo a partir do vetor de predecessores.
-
-    A função percorre o vetor `previous`, gerado por um algoritmo de
-    caminho mínimo (como Dijkstra), voltando do vértice de destino até
-    a origem (quando o valor é None).
-
-    Em seguida, inverte a ordem para retornar o caminho correto
-    (origem → destino).
+    Reconstrói o caminho mínimo a partir
+    do vetor de predecessores.
 
     Parameters
     ----------
     previous : list[int | None]
-        Lista onde cada posição representa o predecessor de um vértice
-        no caminho mínimo.
+        Vetor de predecessores.
+
     destination : int
-        Vértice de destino cujo caminho será reconstruído.
+        Destino do caminho.
 
     Returns
     -------
     list[int]
-        Lista de vértices representando o caminho da origem até o destino.
+        Caminho origem → destino.
     """
+
     path = []
 
     current = destination
 
     while current is not None:
+
         path.append(current)
+
         current = previous[current]
 
     path.reverse()
@@ -54,34 +62,20 @@ def reconstruct_path(previous, destination):
     return path
 
 
-def main():
+def print_shortest_paths(
+    graph,
+    source
+):
     """
-    Executa a simulação completa da colônia baseada em grafos.
-
-    Fluxo principal:
-    - Constrói o grafo da colônia
-    - Exibe a matriz de adjacência (formato rico e simples)
-    - Lista vértices e arestas
-    - Executa o algoritmo de Dijkstra a partir do CENTRO
-    - Reconstrói e exibe os menores caminhos até todos os nós
+    Exibe os menores caminhos
+    a partir do vértice origem.
     """
-
-    graph = (
-        ColonyGraphBuilder()
-        .build()
-    )
-
-    printer = RichGraphPrinter()
-    printer.print_matrix(graph)
-
-    GraphPrinter.print_vertices(graph)
-    GraphPrinter.print_edges(graph)
 
     algorithm = DijkstraAlgorithm()
 
     result = algorithm.execute(
         graph,
-        CENTRO
+        source
     )
 
     print(
@@ -89,7 +83,9 @@ def main():
         "A PARTIR DO CENTRO\n"
     )
 
-    for destination in range(graph.size):
+    for destination in range(
+        graph.size
+    ):
 
         path = reconstruct_path(
             result.previous,
@@ -97,7 +93,11 @@ def main():
         )
 
         names = [
-            graph.vertices[v].name
+
+            graph
+            .vertices[v]
+            .name
+
             for v in path
         ]
 
@@ -105,6 +105,89 @@ def main():
             f"{' → '.join(names):<80}"
             f"{result.distances[destination]} m"
         )
+
+
+def simulate_growth(
+    graph
+):
+    """
+    Simula expansão da colônia.
+
+    A habitação recebe 30%
+    de aumento de carga.
+    """
+
+    EnergyGrowth.increase_load(
+        graph,
+        vertex_id=7,
+        percentage=30
+    )
+
+
+def main():
+    """
+    Executa a simulação completa
+    da infraestrutura da colônia.
+    """
+
+    graph = (
+        ColonyGraphBuilder()
+        .build()
+    )
+
+    print(
+        "\nTOPOLOGIA DA COLÔNIA\n"
+    )
+
+    RichGraphPrinter().print_matrix(
+        graph
+    )
+
+    GraphPrinter.print_vertices(
+        graph
+    )
+
+    GraphPrinter.print_edges(
+        graph
+    )
+
+    print(
+        "\nANÁLISE ENERGÉTICA "
+        "INICIAL\n"
+    )
+
+    EnergyPrinter.print_modules(
+        graph
+    )
+
+    EnergyPrinter.print_total(
+        graph
+    )
+
+    print_shortest_paths(
+        graph,
+        CENTRO
+    )
+
+    print(
+        "\nSIMULAÇÃO DE "
+        "CRESCIMENTO\n"
+    )
+
+    simulate_growth(graph)
+
+    print(
+        "\nANÁLISE ENERGÉTICA "
+        "APÓS EXPANSÃO\n"
+    )
+
+    EnergyPrinter.print_modules(
+        graph
+    )
+
+    EnergyPrinter.print_total(
+        graph
+    )
 
 
 if __name__ == "__main__":
