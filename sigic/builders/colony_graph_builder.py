@@ -37,20 +37,25 @@ class ColonyGraphBuilder:
             graph (Graph): Grafo onde os vértices serão inseridos.
         """
         vertices = {
-            0: "Centro de Controle",
-            1: "Agricultura",
-            2: "Comunicacao",
-            3: "Pesquisa",
-            4: "Recursos",
-            5: "Energia",
-            6: "Medico",
-            7: "Habitacao",
-            8: "Transporte",
+            0: ("Centro de Controle", 50),
+            1: ("Agricultura", 120),
+            2: ("Comunicacao", 40),
+            3: ("Pesquisa", 90),
+            4: ("Recursos", 150),
+            5: ("Energia", 200),
+            6: ("Medico", 70),
+            7: ("Habitacao", 180),
+            8: ("Transporte", 130),
         }
 
-        for idx, name in vertices.items():
+        for idx, (name, consumption) in vertices.items():
+
             graph.add_vertex(
-                Vertex(idx, name)
+                Vertex(
+                    id=idx,
+                    name=name,
+                    base_consumption=consumption
+                )
             )
 
     def _add_edges(self, graph: Graph) -> None:
