@@ -14,6 +14,31 @@ class ShortestPathResult:
     distances: list
     previous: list
 
+def reconstruct_path(previous: list, destination: int) -> list:
+    """
+    Reconstrói o caminho mínimo a partir do vetor de predecessores.
+
+    Parameters
+    ----------
+    previous : list[int | None]
+        Vetor de predecessores.
+    destination : int
+        Nó de destino.
+
+    Returns
+    -------
+    list[int]
+        Caminho do nó origem até o destino.
+    """
+    path = []
+    current = destination
+
+    while current is not None:
+        path.append(current)
+        current = previous[current]
+
+    path.reverse()
+    return path
 
 class DijkstraAlgorithm(ShortestPathAlgorithm):
     """
