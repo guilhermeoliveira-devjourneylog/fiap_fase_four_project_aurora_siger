@@ -50,11 +50,18 @@ class ColonyGraphBuilder:
 
         for idx, (name, consumption) in vertices.items():
 
+            generation_capacity = (
+                1500
+                if idx == 5
+                else 0
+            )
+
             graph.add_vertex(
                 Vertex(
                     id=idx,
                     name=name,
-                    base_consumption=consumption
+                    base_consumption=consumption,
+                    generation_capacity=generation_capacity
                 )
             )
 
