@@ -17,6 +17,7 @@ class Vertex:
     name: str
     base_consumption: float
     current_load: float = 1.0
+    generation_capacity: float = 0.0
 
     @property
     def consumption(self) -> float:
