@@ -1,3 +1,9 @@
+from rich.console import Console
+from rich.table import Table
+
+console = Console()
+
+
 class GraphPrinter:
     """
     Responsável por exibir, em formato textual, os vértices e as arestas
@@ -11,34 +17,62 @@ class GraphPrinter:
     def print_vertices(graph):
         """
         Exibe todos os vértices cadastrados no grafo.
-
-        Args:
-            graph (Graph): Grafo contendo os vértices a serem exibidos.
         """
 
-        print("\nVÉRTICES\n")
+        table = Table(
+            title="VÉRTICES",
+            show_header=True,
+            header_style="bold cyan"
+        )
+
+        table.add_column(
+            "ID",
+            justify="right",
+            style="yellow"
+        )
+
+        table.add_column(
+            "Nome",
+            style="green"
+        )
 
         for vertex in graph.vertices.values():
 
-            print(
-                f"{vertex.id}: "
-                f"{vertex.name}"
+            table.add_row(
+                str(vertex.id),
+                vertex.name
             )
+
+        console.print()
+        console.print(table)
 
     @staticmethod
     def print_edges(graph):
         """
         Exibe todas as arestas do grafo e suas respectivas distâncias.
-
-        Percorre a matriz de adjacência considerando apenas a metade superior
-        da matriz para evitar a exibição duplicada de conexões em grafos não
-        direcionados. Ao final, apresenta a quantidade total de arestas.
-
-        Args:
-            graph (Graph): Grafo contendo as conexões a serem exibidas.
         """
 
-        print("\nARESTAS\n")
+        table = Table(
+            title="ARESTAS",
+            show_header=True,
+            header_style="bold cyan"
+        )
+
+        table.add_column(
+            "Origem",
+            style="green"
+        )
+
+        table.add_column(
+            "Destino",
+            style="green"
+        )
+
+        table.add_column(
+            "Distância (m)",
+            justify="right",
+            style="yellow"
+        )
 
         total = 0
 
@@ -53,13 +87,18 @@ class GraphPrinter:
 
                 if distance is not None:
 
-                    print(
-                        f"{graph.vertices[i].name}"
-                        f" ↔ "
-                        f"{graph.vertices[j].name}"
-                        f" ({distance} m)"
+                    table.add_row(
+                        graph.vertices[i].name,
+                        graph.vertices[j].name,
+                        str(distance)
                     )
 
                     total += 1
 
-        print(f"\nTOTAL: {total}")
+        console.print()
+        console.print(table)
+
+        console.print(
+            f"\n[bold cyan]TOTAL DE ARESTAS:[/bold cyan] "
+            f"[yellow]{total}[/yellow]"
+        )
