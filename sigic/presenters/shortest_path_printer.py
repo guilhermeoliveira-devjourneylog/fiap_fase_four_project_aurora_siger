@@ -1,3 +1,6 @@
+from rich.console import Console
+from rich.table import Table
+
 from algorithms.dijkstra import reconstruct_path
 
 
@@ -8,13 +11,34 @@ class ShortestPathPrinter:
 
     def __init__(self, graph):
         self.graph = graph
+        self.console = Console()
 
     def print(self, result, source: int):
         """
         Exibe os menores caminhos a partir da origem.
         """
 
-        print("\nMENORES CAMINHOS A PARTIR DO CENTRO\n")
+        table = Table(
+            title="Menores Caminhos a Partir do Centro",
+            show_lines=True
+        )
+
+        table.add_column(
+            "Destino",
+            style="cyan",
+            no_wrap=True
+        )
+
+        table.add_column(
+            "Caminho",
+            style="green"
+        )
+
+        table.add_column(
+            "Distância (m)",
+            justify="right",
+            style="yellow"
+        )
 
         for destination in range(self.graph.size):
 
@@ -28,7 +52,11 @@ class ShortestPathPrinter:
                 for v in path
             ]
 
-            print(
-                f"{' → '.join(names):<80}"
-                f"{result.distances[destination]} m"
+            table.add_row(
+                self.graph.vertices[destination].name,
+                " → ".join(names),
+                f"{result.distances[destination]:.0f}"
             )
+
+        self.console.print()
+        self.console.print(table)
