@@ -1,6 +1,11 @@
+from rich.console import Console
+from rich.table import Table
+
 from algorithms.energy_distribution import (
     EnergyDistribution
 )
+
+console = Console()
 
 
 class EnergyDistributionPrinter:
@@ -14,46 +19,61 @@ class EnergyDistributionPrinter:
         graph
     ) -> None:
 
-        print(
-            "\nDISTRIBUIÇÃO ENERGÉTICA\n"
+        table = Table(
+            title="⚡ Distribuição Energética",
+            show_header=True,
+            header_style="bold cyan"
         )
 
-        print(
-            f"Geração........: "
+        table.add_column(
+            "Indicador",
+            style="bold"
+        )
+
+        table.add_column(
+            "Valor",
+            justify="right"
+        )
+
+        table.add_row(
+            "Geração",
             f"{EnergyDistribution.generation_capacity(graph):.2f}"
         )
 
-        print(
-            f"Demanda........: "
+        table.add_row(
+            "Demanda",
             f"{EnergyDistribution.total_demand(graph):.2f}"
         )
 
-        print(
-            f"Cobertura......: "
+        table.add_row(
+            "Cobertura",
             f"{EnergyDistribution.coverage(graph):.2%}"
         )
 
-        print(
-            f"Saldo..........: "
+        table.add_row(
+            "Saldo",
             f"{EnergyDistribution.balance(graph):.2f}"
         )
 
-        print(
-            f"Perdas.........: "
+        table.add_row(
+            "Perdas",
             f"{EnergyDistribution.transmission_losses(graph):.2f}"
         )
 
-        print(
-            f"Energia Entregue: "
+        table.add_row(
+            "Energia Entregue",
             f"{EnergyDistribution.delivered_energy(graph):.2f}"
         )
 
-        print(
-            f"EDEI...........: "
+        table.add_row(
+            "EDEI",
             f"{EnergyDistribution.edei(graph):.2%}"
         )
 
-        print(
-            f"Classificação..: "
-            f"{EnergyDistribution.classification(graph)}"
+        table.add_row(
+            "Classificação",
+            EnergyDistribution.classification(graph)
         )
+
+        console.print()
+        console.print(table)
