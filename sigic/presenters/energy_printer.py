@@ -1,3 +1,6 @@
+from rich.console import Console
+from rich.table import Table
+
 from algorithms.energy_consumption import (
     EnergyConsumption
 )
@@ -5,16 +8,33 @@ from algorithms.energy_consumption import (
 
 class EnergyPrinter:
     """
-    Apresentação das análises energéticas.
+    Apresentação rica das análises energéticas.
     """
 
-    @staticmethod
+    console = Console()
+
+    @classmethod
     def print_modules(
+        cls,
         graph
     ) -> None:
+        """
+        Exibe o consumo de energia por módulo.
+        """
 
-        print(
-            "\nCONSUMO POR MÓDULO\n"
+        table = Table(
+            title="Consumo por Módulo"
+        )
+
+        table.add_column(
+            "Módulo",
+            style="cyan"
+        )
+
+        table.add_column(
+            "Consumo",
+            justify="right",
+            style="green"
         )
 
         for (
@@ -25,22 +45,40 @@ class EnergyPrinter:
             .by_module(graph)
             .items()
         ):
-
-            print(
-                f"{module:<20}"
-                f"{consumption:>8.2f}"
+            table.add_row(
+                module,
+                f"{consumption:.2f}"
             )
 
-    @staticmethod
+        cls.console.print(table)
+
+    @classmethod
     def print_total(
+        cls,
         graph
     ) -> None:
+        """
+        Exibe o consumo total da colônia.
+        """
 
-        print(
-            "\nCONSUMO TOTAL\n"
+        table = Table(
+            title="Consumo Total"
         )
 
-        print(
-            EnergyConsumption
-            .total(graph)
+        table.add_column(
+            "Métrica",
+            style="cyan"
         )
+
+        table.add_column(
+            "Valor",
+            justify="right",
+            style="green"
+        )
+
+        table.add_row(
+            "Consumo Total",
+            f"{EnergyConsumption.total(graph):.2f}"
+        )
+
+        cls.console.print(table)
