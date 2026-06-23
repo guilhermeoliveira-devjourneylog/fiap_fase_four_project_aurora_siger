@@ -6,7 +6,7 @@ A infraestrutura da colônia lunar é organizada como uma rede integrada de mód
 
 ## Conexões
 
-[Conexões](/infraestrutura/sistema/conexoes)
+[Conexões](/docs/infraestrutura/sistema/conexoes)
 
 
 ## Visão Geral da Infraestrutura
@@ -17,7 +17,7 @@ A infraestrutura da colônia lunar é organizada como uma rede integrada de mód
 
 É o núcleo estratégico da colônia. Coordena operações, consolida telemetria, supervisiona condições ambientais, gerencia o tráfego interno, mantém comunicações Terra-Lua e executa funções de segurança, resposta a emergências e suporte à decisão por inteligência artificial.
 
-[Sistema de Controle](/infraestrutura/sistema/controle.md)
+[Sistema de Controle](/docs/infraestrutura/sistema/controle.md)
 
 **2. Agricultura**
 
@@ -25,7 +25,7 @@ A infraestrutura da colônia lunar é organizada como uma rede integrada de mód
 
 Responsável pela produção sustentável de alimentos através de estufas hidropônicas automatizadas. Possui sistemas de controle climático, iluminação artificial, monitoramento nutricional, reciclagem de água, polinização assistida, detecção de pragas e otimização agronômica baseada em IA.
 
-[Sistema de Agricultura](/infraestrutura/sistema/agricultura.md)
+[Sistema de Agricultura](/docs/infraestrutura/sistema/agricultura.md)
 
 **3. Comunicação**
 
@@ -33,7 +33,7 @@ Responsável pela produção sustentável de alimentos através de estufas hidro
 
 Mantém a conectividade da colônia com a Terra e entre os próprios módulos. A infraestrutura inclui enlaces Terra-Lua, rede interna LunaNet, telecomando de veículos e robôs, videoconferência interplanetária, satélites orbitais, comunicação de emergência, mensageria corporativa, sincronização temporal e mecanismos de criptografia e monitoramento de tráfego.
 
-[Sistema de Comunicação](/infraestrutura/sistema/comunicacao.md)
+[Sistema de Comunicação](/docs/infraestrutura/sistema/comunicacao.md)
 
 **4. Energia**
 
@@ -51,7 +51,7 @@ Capacidade Energética Atual
 
 - Consumo dos demais módulos: 17.900 MW
 
-[Sistema de Energia](/infraestrutura/sistema/energia.md)
+[Sistema de Energia](/docs/infraestrutura/sistema/energia.md)
 
 **5. Pesquisa**
 
@@ -59,7 +59,7 @@ Capacidade Energética Atual
 
 Centro de inovação científica da colônia. Abriga laboratórios de ciências lunares, biotecnologia, materiais avançados, robótica e automação, observatório astronômico, centros de simulação e plataformas de análise científica assistidas por IA. Também mantém integração contínua com centros de pesquisa terrestres.
 
-[Sistema de Pesquisa](/infraestrutura/sistema/pesquisa.md)
+[Sistema de Pesquisa](/docs/infraestrutura/sistema/pesquisa.md)
 
 **6. Recursos**
 
@@ -67,7 +67,7 @@ Centro de inovação científica da colônia. Abriga laboratórios de ciências 
 
 Responsável pela extração, processamento e gestão de recursos lunares utilizados na manutenção e expansão da colônia. Inclui operações industriais, mineração e gerenciamento de materiais estratégicos.
 
-[Sistema de Recursos](/infraestrutura/sistema/recursos.md)
+[Sistema de Recursos](/docs/infraestrutura/sistema/recursos.md)
 
 **7. Habitação**
 
@@ -75,7 +75,7 @@ Responsável pela extração, processamento e gestão de recursos lunares utiliz
 
 Fornece suporte residencial para os colonos. Possui sistemas de proteção contra radiação, alojamentos inteligentes, controle ambiental, segurança residencial, áreas de convivência, monitoramento estrutural e IA de gestão habitacional.
 
-[Sistema de Habitação](/infraestrutura/sistema/habitacao.md)
+[Sistema de Habitação](/docs/infraestrutura/sistema/habitacao.md)
 
 **8. Médico**
 
@@ -83,7 +83,7 @@ Fornece suporte residencial para os colonos. Possui sistemas de proteção contr
 
 Responsável pela saúde da população da colônia. Inclui monitoramento biomédico em tempo real, prontuário eletrônico, telemedicina Terra-Lua, centro cirúrgico assistido, farmácia, sistemas de emergência médica, programas preventivos e reabilitação física para adaptação à baixa gravidade.
 
-[Sistema Médico](/infraestrutura/sistema/medico.md)
+[Sistema Médico](/docs/infraestrutura/sistema/medico.md)
 
 **9. Transporte**
 
@@ -91,14 +91,14 @@ Responsável pela saúde da população da colônia. Inclui monitoramento biomé
 
 Gerencia a movimentação de pessoas, cargas, veículos e drones logísticos entre os módulos e pela superfície lunar, sustentando a operação integrada da colônia.
 
-[Sistema de Transporte](/infraestrutura/sistema/transporte.md)
+[Sistema de Transporte](/docs/infraestrutura/sistema/transporte.md)
 
-[Governança](/infraestrutura/governanca/governanca.md)
+[Governança](/docs/infraestrutura/governanca/governanca.md)
 
-[Sustentabilidade](/infraestrutura/sustentabilidade/sustentabilidade.md)
+[Sustentabilidade](/docs/infraestrutura/sustentabilidade/sustentabilidade.md)
 
-[Maturidade Operacional](/infraestrutura/maturidade_operacional.md)
+[Maturidade Operacional](/docs/infraestrutura/maturidade_operacional.md)
 
-[Sistemas Críticos](/infraestrutura/sistemas_criticos.md)
+[Sistemas Críticos](/docs/infraestrutura/sistemas_criticos.md)
 
 
