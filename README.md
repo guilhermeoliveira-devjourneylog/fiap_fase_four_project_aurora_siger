@@ -6,6 +6,7 @@ Arquitetura Computacional para Distribuição Inteligente de Energia na Colônia
 Versão: 1.0
 Projeto: Fase 4 – Aurora Siger
 Autor: Guilherme Rodrigues Oliveira
+rm573419
 Ano: 2026
 
 ## Resumo Executivo
